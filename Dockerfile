@@ -19,7 +19,7 @@ RUN dnf install -y \
 WORKDIR /DATA/
 
 # file copy
-COPY socket_client.tar.gz
+COPY socket_client.tar.gz .
 COPY exec.sh .
     
 # permission 
