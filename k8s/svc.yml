@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: tcp-client-service
+
+spec:
+  selector:
+    app: tcp-client
+
+  ports:
+    - port: 9090
+      targetPort: 9090
+
+  type: ClusterIP
