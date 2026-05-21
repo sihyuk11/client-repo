@@ -27,3 +27,15 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/client_repo:latest
 
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: Set kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/
+
