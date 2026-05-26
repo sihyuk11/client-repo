@@ -15,7 +15,7 @@ jobs:
 
       - name: Deploy on VM
         run: |
-          cd ~/kube
+          cd /DATA/test2/k8s
 
           docker pull sihyuk11/client_repo:latest
 
