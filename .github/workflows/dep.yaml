@@ -15,7 +15,7 @@ jobs:
 
       - name: Deploy on VM
         run: |
-          export KUBECONFIG=/root/.kube/config
+          export KUBECONFIG=/home/test/.kube/config
 
           cd /DATA/test2/k8s
 
