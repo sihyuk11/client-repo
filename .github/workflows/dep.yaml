@@ -21,4 +21,4 @@ jobs:
 
           docker pull sihyuk11/client_repo:latest
 
-          kubectl rollout restart deployment client-repo -n tcp-client
+          kubectl rollout restart deployment client-repo
