@@ -15,8 +15,10 @@ jobs:
 
       - name: Deploy on VM
         run: |
+          export KUBECONFIG=/root/.kube/config
+
           cd /DATA/test2/k8s
 
           docker pull sihyuk11/client_repo:latest
 
-          kubectl rollout restart deployment client-repo
+          kubectl rollout restart deployment client-repo -n tcp-client
