@@ -7,22 +7,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: SSH Deploy
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
+      - name: Deploy on VM
+        run: |
+          cd ~/kube
 
-          script: |
-            cd ~/kube
+          docker pull sihyuk11/client_repo:latest
 
-            docker pull sihyuk11/client_repo:latest
-
-            kubectl rollout restart deployment client-repo
+          kubectl rollout restart deployment client-repo
